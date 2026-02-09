@@ -5,7 +5,6 @@ import { LuImage, LuX } from "react-icons/lu";
 const EmojiPickerPopup = ({ icon, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-<<<<<<< HEAD
     <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5 mb-4 md:mb-6">
       <div className="flex items-center gap-3 md:gap-4 cursor-pointer" 
       onClick={() => setIsOpen(true)}>
@@ -13,24 +12,11 @@ const EmojiPickerPopup = ({ icon, onSelect }) => {
           {icon ? <img src={icon} alt="Icon" className="w-10 h-10 md:w-12 md:h-12" /> : <LuImage />}
         </div>
         <p className="text-sm md:text-base">{icon ? "Change Icon" : "Pick Icon"}</p>
-=======
-    <div className="flex flex-col md:flex-row items-start gap-5 mb-6">
-      <div className="flex items-center gap-4 cursor-pointer" 
-      onClick={() => setIsOpen(true)}>
-        <div className="w-12 h-12 flex items-center justify-center text-2xl bg-purple-50 text-primary rounded-lg ">
-          {icon ? <img src={icon} alt="Icon" className="w-12 h-12" /> : <LuImage />}
-        </div>
-        <p className="">{icon ? "Change Icon" : "Pick Icon"}</p>
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
       </div>
 
       {isOpen && (
         <div className="relative">
-<<<<<<< HEAD
-          <button className="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center bg-white border border-gray-200 rounded-full absolute -top-2 -right-2 z-10 cursor-pointer text-sm md:text-base" 
-=======
           <button className="w-7 h-7 flex items-center justify-center bg-white border border-gray-200 rounded-full absolute -top-2 -right-2 z-10 cursor-pointer" 
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
           onClick={() => setIsOpen(false)}>
             <LuX />
           </button>
