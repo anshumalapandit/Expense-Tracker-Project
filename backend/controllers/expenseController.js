@@ -1,34 +1,6 @@
 const xlsx=require('xlsx')
 const Expense=require("../models/Expense")
 // Add Expense Source
-<<<<<<< HEAD
-exports.addExpense = async (req, res) => {
-    const userId = req.user.id;
-
-    try {
-        const { icon, category, amount, date } = req.body;
-
-        // Validation: Check for missing fields
-        if (!category || !amount || !date) {
-            return res.status(400).json({ message: "All fields are required" });
-        }
-
-        const newExpense = new Expense({
-            userId,
-            icon,
-            category,
-            amount,
-            date: new Date(date)
-        });
-
-        await newExpense.save();
-        res.status(200).json(newExpense);
-    } catch (error) {
-        res.status(500).json({ message: "Server Error" });
-    }
-};
-
-=======
 // exports.addExpense = async (req, res) => {
 //     const userId = req.user.id;
 
@@ -118,7 +90,6 @@ exports.addExpense = async (req, res) => {
 };
 
 // ... (keep getAllExpense, deleteExpense, downloadExpenseExcel exactly as is)
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
 
 // Get All Expense Source
 exports.getAllExpense = async (req, res) => {

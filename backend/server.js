@@ -27,13 +27,10 @@ app.use("/api/v1/income",incomeRoutes);
 app.use("/api/v1/expense",expenseRoutes);
 app.use("/api/v1/dashboard",dashboardRoutes);
 app.use("/uploads",express.static(path.join(__dirname,"uploads")));
-<<<<<<< HEAD
-=======
 app.get("/", (req, res) => {
   res.send("Expense Tracker API is running 🚀");
 });
 
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
