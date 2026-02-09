@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";
-<<<<<<< HEAD
-
-const AddExpenseForm = ({ onAddExpense }) => {
-=======
 import { toast } from 'react-hot-toast'; // Install with: npm install react-hot-toast
 
 const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
     const [income, setIncome] = useState({
         category: "",
         amount: "",
@@ -20,8 +15,6 @@ const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
         setIncome({ ...income, [key]: value });
     };
 
-<<<<<<< HEAD
-=======
     const handleSubmit = () => {
         // 1. Convert amount to number
         const expenseAmount = Number(income.amount);
@@ -54,7 +47,6 @@ const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
         }));
     };
 
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
     return (
         <div>
             <EmojiPickerPopup
@@ -76,10 +68,7 @@ const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
                 label="Amount"
                 placeholder=""
                 type="number"
-<<<<<<< HEAD
-=======
                 min="0"
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
             />
             
             <Input
@@ -89,17 +78,6 @@ const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
                 placeholder=""
                 type="date"
             />
-<<<<<<< HEAD
-            <div className="flex justify-end mt-6">
-            <button 
-            type="button"
-                onClick={() => onAddExpense(income)}
-                className="add-btn add-btn-fill"
-            >
-                Add Expense
-            </button>
-        </div>
-=======
             
             <div className="flex justify-end mt-6">
                 <button 
@@ -110,7 +88,6 @@ const AddExpenseForm = ({ onAddExpense, currentBalance }) => {
                     Add Expense
                 </button>
             </div>
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
         </div>
     );
 };
