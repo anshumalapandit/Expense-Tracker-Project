@@ -14,10 +14,6 @@ import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions"
 import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 import RecentIncomeWithChart from '../../components/Dashboard/RecentIncomeWithChart';
 import RecentIncome from '../../components/Dashboard/RecentIncome';
-<<<<<<< HEAD
-=======
-import SavingsGoalWidget from '../../components/Dashboard/SavingsGoalWidget';
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
 const Home = () => {
     useUserAuth();
     const navigate = useNavigate();
@@ -72,18 +68,7 @@ const Home = () => {
                     color="bg-red-500"
                 />
             </div>
-<<<<<<< HEAD
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 ">
-=======
-            
-{/* 👇 Add Savings Goal Widget Here 👇 */}
-<SavingsGoalWidget 
-  totalIncome={dashboardData?.totalIncome || 0} 
-  totalExpense={dashboardData?.totalExpenses || 0}
-/>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 ">
-
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
                 <RecentTransactions
                 transactions={dashboardData?.recentTransactions}
                 onSeeMore={()=> navigate("/expense")}
