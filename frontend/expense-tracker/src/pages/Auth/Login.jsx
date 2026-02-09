@@ -1,4 +1,4 @@
-import { React, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import { useNavigate, Link } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
@@ -10,25 +10,28 @@ import { UserContext } from "../../contexts/userContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Login initiated");
 
+    // 🔍 Validation
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       return;
     }
 
     if (!password) {
-      setError("Please enter the password");
+      setError("Please enter the password.");
       return;
     }
 
     setError("");
+    setLoading(true);
 
     try {
       const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
@@ -37,22 +40,25 @@ const Login = () => {
       });
 
       const { token, user } = response.data;
+
       if (token) {
+        // ✅ Save token
         localStorage.setItem("token", token);
-        updateUser(user); // this updates context
-        console.log("User set in context ✅");
-        console.log("User from API:", user); // ✅ check this also
-        // ✅ Wait for 100ms to ensure context updates before navigating
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 100);
+
+        // ✅ Update context
+        updateUser(user);
+
+        // ✅ Safe navigation (NO timeout)
+        navigate("/dashboard", { replace: true });
       }
-    } catch (error) {
-      if (error.response?.data?.message) {
-        setError(error.response.data.message);
+    } catch (err) {
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
       } else {
         setError("Something went wrong. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,6 +69,7 @@ const Login = () => {
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           Please enter your details to log in
         </p>
+
         <form onSubmit={handleLogin}>
           <Input
             value={email}
@@ -71,6 +78,7 @@ const Login = () => {
             placeholder="john@example.com"
             type="text"
           />
+
           <Input
             value={password}
             onChange={({ target }) => setPassword(target.value)}
@@ -78,10 +86,11 @@ const Login = () => {
             placeholder="Min 8 Character"
             type="password"
           />
+
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-          <button type="submit" className="btn-primary">
-            LOGIN
+          <button type="submit" className="btn-primary" disabled={loading}>
+            {loading ? "Logging in..." : "LOGIN"}
           </button>
 
           <p className="text-[13px] text-slate-800 mt-3">
