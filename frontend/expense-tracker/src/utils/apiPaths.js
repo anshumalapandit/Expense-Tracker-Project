@@ -24,8 +24,4 @@ export const API_PATHS = {
     IMAGE: {
         UPLOAD_IMAGE: "/api/v1/auth/upload-image",
     },
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
