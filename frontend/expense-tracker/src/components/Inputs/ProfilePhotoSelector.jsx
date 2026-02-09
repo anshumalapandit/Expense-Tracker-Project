@@ -27,11 +27,7 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     inputRef.current.click();
   };
 
-<<<<<<< HEAD
   return <div className='flex justify-center mb-4 md:mb-6'>
-=======
-  return <div className='flex justify-center mb-6'>
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
     <input 
     type="file"
     accept="image/*"
@@ -40,19 +36,11 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
     className='hidden'
    />
     { ! image ? (
-<<<<<<< HEAD
         <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
          <LuUser className='text-3xl md:text-4xl text-primary'/>
          <button
          type="button"
          className='w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1 text-sm md:text-base'
-=======
-        <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
-         <LuUser className='text-4xl text-primary'/>
-         <button
-         type="button"
-         className='w-8 h-8 flex items-center justify-center bg-primary  text-white rounded-full absolute -bottom-1 -right-1'
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
          onClick={onChooseFile}
         >
         <LuUpload/>
@@ -63,19 +51,11 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
             <img
             src={previewUrl}
             alt="profile photo"
-<<<<<<< HEAD
             className='w-16 h-16 md:w-20 md:h-20 rounded-full object-cover'
             />
             <button
             type="button"
             className='w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -right-1 text-sm md:text-base'
-=======
-            className='w-20 h-20 rounded-full object-cover'
-            />
-            <button
-            type="button"
-            className='w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full -bottom-1 -right-1 '
->>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
             onClick={handleRemoveImage}
             >
                 <LuTrash/>
