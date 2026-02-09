@@ -97,6 +97,7 @@ const SignUp = () => {
         <form onSubmit={handleSignUp}>
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
           
+<<<<<<< HEAD
           <Input
             value={fullName}
             onChange={({ target }) => setFullName(target.value)}
@@ -122,6 +123,37 @@ const SignUp = () => {
             minLength="8"
             required
           />
+=======
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input
+              value={fullName}
+              onChange={({ target }) => setFullName(target.value)}
+              label="Full Name"
+              placeholder="John"
+              type="text"
+              required
+            />
+            <Input
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
+              label="Email Address"
+              placeholder="john@example.com"
+              type="email"
+              required
+            />
+            <div className="col-span-2">
+              <Input
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
+                label="Password"
+                placeholder="Min 8 Character"
+                type="password"
+                minLength="8"
+                required
+              />
+            </div>
+          </div>
+>>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
         
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
           
@@ -133,7 +165,11 @@ const SignUp = () => {
             {isLoading ? 'Creating Account...' : 'SIGN UP'}
           </button>
           
+<<<<<<< HEAD
           <p className="text-xs md:text-[13px] text-slate-800 mt-2 md:mt-3 text-center">
+=======
+          <p className="text-[13px] text-slate-800 mt-3">
+>>>>>>> 9df84abc12171b6cd2acf9f4baf7d2e8802c0875
             Already have an account?{" "}
             <Link className="font-medium text-primary underline" to="/login">
               Login
